@@ -17,7 +17,7 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "pointconverter.h"
+#include "coordinate.h"
 
 int main(){
 // STRING CONVERSION TESTED ON 2000+ RANDOMLY GENERATED CHARS WITH 100% ACCURACY

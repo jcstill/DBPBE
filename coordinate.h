@@ -1,4 +1,4 @@
-// pointconverter is part of the DBPBE project
+// coordinate.h is part of the DBPBE project
 // Copyright (C) 2020 Jacob Still jacobcstill@gmail.com
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,6 +13,8 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#ifndef __COORDINATE_H__
+#define __COORDINATE_H__
 #include <cmath>
 #include <cstdint>
 using namespace std;
@@ -67,3 +69,4 @@ class coordinate{
 			return uint8_t(getxpre() / 16785407);
 		}
 };
+#endif

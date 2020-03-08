@@ -17,10 +17,10 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "coordinate.h"
+#include "encrypt.h"
+#include "decrypt.h"
 
 int main(){
-// STRING CONVERSION TESTED ON 2000+ RANDOMLY GENERATED CHARS WITH 100% ACCURACY
 // Comment out each section to test individually
 //---------------------------------------------------------------
 //TESTING FOR DATATYPE CASTING
@@ -74,26 +74,55 @@ int main(){
 	// }
 //---------------------------------------------------------------
 //TESTING STRING INPUTS INTO LIST
-	list<coordinate> mylist;
-	string input;
-	cout << "enter string to convert to points: ";
-	getline(cin, input);
-	cout << "\nPoints:\n";
-	for(unsigned int i=0; i<input.length(); ++i){
+	// list<coordinate> mylist;
+	// string input;
+	// cout << "enter string to convert to points: ";
+	// getline(cin, input);
+	// cout << "\nPoints:\n";
+	// for(unsigned int i=0; i<input.length(); ++i){
+	// 	coordinate tmp;
+	// 	tmp.converttopoint((uint8_t)(input[i]));
+	// 	tmp.getxpositive()?cout << "+":cout << "-";
+	// 	cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
+	// 	tmp.getypositive()?cout << "+":cout << "-";
+	// 	cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
+	// 	mylist.push_back(tmp);
+	// }
+	// cout << "\nConverted back:\n";
+	// while(mylist.size()!=0){
+	// 	cout << mylist.front().converttodata();
+	// 	mylist.pop_front();
+	// }
+	// cout << '\n';
+//---------------------------------------------------------------
+//TESTING STRING INPUTS INTO LIST WITH MASSIVE DATA SETS
+// STRING CONVERSION TESTED ON 100,000,000 RANDOMLY GENERATED CHARS WITH 100% ACCURACY (yes really)
+// tr -d "\n\r" < TESTDATASET100M > testin && cat testin | ./Driver > testout && echo && diff -yqsZ testin testout && wc -m testout && rm testin testout
+	// list<coordinate> mylist;
+	// string input;
+	// getline(cin, input);
+	// for(unsigned int i=0; i<input.length(); ++i){
+	// 	coordinate tmp;
+	// 	tmp.converttopoint((uint8_t)(input[i]));
+	// 	mylist.push_back(tmp);
+	// }
+	// while(mylist.size()!=0){
+	// 	cout << mylist.front().converttodata();
+	// 	mylist.pop_front();
+	// }
+	// cout << '\n';
+//---------------------------------------------------------------
+//TESTING KEY POINT CONVERSION
+	for(uint16_t unencrypted=0; unencrypted<65535; ++unencrypted){
+		cout << "uint16_t:\t" << unencrypted << '\t';
 		coordinate tmp;
-		tmp.converttopoint((uint8_t)(input[i]));
+		tmp.genkeypoint(unencrypted);
+		cout << "converted to point:\t";
 		tmp.getxpositive()?cout << "+":cout << "-";
 		cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
 		tmp.getypositive()?cout << "+":cout << "-";
 		cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
-		mylist.push_back(tmp);
 	}
-	cout << "\nConverted back:\n";
-	while(mylist.size()!=0){
-		cout << mylist.front().converttodata();
-		mylist.pop_front();
-	}
-	cout << '\n';
 //---------------------------------------------------------------
 	return 0;
 }

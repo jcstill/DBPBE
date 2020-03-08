@@ -68,5 +68,14 @@ class coordinate{
 			// No need to use a complex methood to reverse the point conversion
 			return uint8_t(getxpre() / 16785407);
 		}
+		void genkeypoint(uint16_t input){
+			bool a = true;
+			unsigned int b = (unsigned int)((input^64217)*65413);
+			unsigned int c = 0;
+			bool d = false;
+			unsigned int e = 0;
+			unsigned int f = 0;
+			setdata(a, b, c, d, e, f);
+		}
 };
 #endif

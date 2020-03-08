@@ -1,5 +1,6 @@
-// decrypt.h is part of the DBPBE project
+// coordinate.h is part of the DBPBE project
 // Copyright (C) 2020 Jacob Still jacobcstill@gmail.com
+// Copyright (C) 2020 Alex Golubow agolubow@gmail.com
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by

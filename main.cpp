@@ -18,6 +18,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <ctime>
 #include "encrypt.h"
 #include "decrypt.h"
 
@@ -114,16 +115,27 @@ int main(){
 	// cout << '\n';
 //---------------------------------------------------------------
 //TESTING KEY POINT CONVERSION
-	for(uint16_t unencrypted=0; unencrypted<65535; ++unencrypted){
-		cout << "uint16_t:\t" << unencrypted << '\t';
-		coordinate tmp;
-		tmp.genkeypoint(unencrypted);
-		cout << "converted to point:\t";
-		tmp.getxpositive()?cout << "+":cout << "-";
-		cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
-		tmp.getypositive()?cout << "+":cout << "-";
-		cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
-	}
+	// for(uint16_t unencrypted=0; unencrypted<65535; ++unencrypted){
+	// 	cout << "uint16_t:\t" << unencrypted << '\t';
+	// 	coordinate tmp;
+	// 	tmp.genkeypoint(unencrypted);
+	// 	cout << "converted to point:\t";
+	// 	tmp.getxpositive()?cout << "+":cout << "-";
+	// 	cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
+	// 	tmp.getypositive()?cout << "+":cout << "-";
+	// 	cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
+	// }
+//---------------------------------------------------------------
+//TESTING KEY GENERATION BASED ON RAND
+	srand(time(NULL));
+	coordinate tmp;
+	uint16_t s = uint16_t(rand()%65536);
+	tmp.genkeypoint(s);
+	cout  << s << ":\t";
+	tmp.getxpositive()?cout << "+":cout << "-";
+	cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
+	tmp.getypositive()?cout << "+":cout << "-";
+	cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
 //---------------------------------------------------------------
 	return 0;
 }

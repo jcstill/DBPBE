@@ -70,12 +70,12 @@ class coordinate{
 			return uint8_t(getxpre() / 16785407);
 		}
 		void genkeypoint(uint16_t input){
-			bool a = true;
+			bool a = (bool)(input%2);
 			unsigned int b = (unsigned int)((input^64217)*65413);
-			unsigned int c = 0;
-			bool d = false;
-			unsigned int e = 0;
-			unsigned int f = 0;
+			unsigned int c = (unsigned int)(59135) % (((unsigned int)(input) % (unsigned int)(47246)) + (unsigned int)(1));
+			bool d = (bool)(((c/10)*input) % 2);
+			unsigned int e = ((unsigned int)(input) * (unsigned int)(65473)) / (unsigned int)(29910);
+			unsigned int f = ((unsigned int)input * (unsigned int)input)^(input<<8);
 			setdata(a, b, c, d, e, f);
 		}
 };

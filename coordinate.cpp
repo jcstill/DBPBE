@@ -193,7 +193,7 @@ long double get_single(long double x[6]){
 coordinate calccord(long double dist1, long double dist2, long double dist3, coordinate key1, coordinate key2, coordinate key3){
 	// Based on work by Paul Bourke: http://paulbourke.net/geometry/circlesphere/ (Intersection of two circles)
 	// and C code by Tim Voght: http://paulbourke.net/geometry/circlesphere/tvoght.c
-	cout << "-----------------\n"
+	cout << "-----------------\n";
 	long double x[6] = {1, 1, 1, 1, 1, 1};
 	long double y[6] = {1, 1, 1, 1, 1, 1};
 	long double x0 = fabs(todecimal((long double)(key1.getxpost())) + key1.getxpre());
@@ -253,7 +253,7 @@ coordinate calccord(long double dist1, long double dist2, long double dist3, coo
 
 	long double xchar = get_single(x);
 	long double ychar = get_single(y);
-	cout << "-----------------\n"
+	cout << "-----------------\n";
 	cout << fixed << setprecision(10) << xchar << ",\t";
 	cout << fixed << setprecision(10) << ychar << '\n';
 	coordinate tmp;

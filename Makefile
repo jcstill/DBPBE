@@ -5,7 +5,8 @@ WFLAG=-Wall
 OFLAG=-o
 
 # Program Specific:
-SOURCES=	main.cpp
+SOURCES=	main.cpp		\
+			coordinate.cpp
 
 OBJECTS=$(SOURCES:.cpp=.o)
 HEADERS=$(SOURCES:.cpp=.h)
@@ -23,7 +24,7 @@ $(EXECUTABLE): $(OBJECTS)
 
 # Cleanup Routines:
 clean:
-	rm $(OBJECTS) $(EXECUTABLE) $(EXECUTABLE).tar
+	rm $(OBJECTS) $(EXECUTABLE)
 
 clean-o:
 	rm $(OBJECTS)

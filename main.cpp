@@ -168,15 +168,14 @@ int main(){
 	// cout << key1.getxpre() << '.' << key1.getxpost() << '\t';
 	// key1.getypositive()?cout << "+":cout << "-";
 	// cout << key1.getypre() << '.' << key1.getypost() << '\n';
-	// distcoord test;
-	// test.calcdist(data, key1);
-	// cout << "Dist:\t" << fixed << setprecision(10) << test.getdist() << '\n';
+	// long double dist = calcdist(data, key1);
+	// cout << "Dist:\t" << fixed << setprecision(10) << dist << '\n';
 //---------------------------------------------------------------
 	// cout << "TESTING CONVERTING STRING TO DISTANCES" << '\n';
 	// srand(time(NULL));
 	// list<coordinate> mylist;
 	// string input;
-	// cout << "enter string to convert to points: ";
+	// cout << "enter string to convert to distance: ";
 	// getline(cin, input);
 	// for(unsigned int i=0; i<input.length(); ++i){
 	// 	cout << input[i] << ":\t";
@@ -196,11 +195,53 @@ int main(){
 	// key1.getypositive()?cout << "+":cout << "-";
 	// cout << key1.getypre() << '.' << key1.getypost() << '\n';
 	// while(mylist.size() > 0){
-	// 	distcoord test;
-	// 	test.calcdist(mylist.front(), key1);
+	// 	long double dist = calcdist(mylist.front(), key1);
 	// 	mylist.pop_front();
-	// 	cout << "\t" << fixed << setprecision(10) << test.getdist() << '\n';
+	// 	cout << "Dist:\t" << fixed << setprecision(10) << dist << '\n';
 	// }
+//---------------------------------------------------------------
+	cout << "TESTING CONVERTING TO AND FROM DISTANCES" << '\n';
+	srand(time(NULL));
+	uint8_t input;
+	cout << "enter data char: ";
+	cin >> input;
+	cout << "Data:\t";
+	coordinate data;
+	data.converttopoint(input);
+	data.getxpositive()?cout << "":cout << "-";
+	cout << data.getxpre() << '.' << data.getxpost() << ", ";
+	data.getypositive()?cout << "":cout << "-";
+	cout << data.getypre() << '.' << data.getypost() << "\n";
+	cout << "Key1:\t";
+	coordinate key1;
+	key1.genkeypoint();
+	key1.getxpositive()?cout << "":cout << "-";
+	cout << key1.getxpre() << '.' << key1.getxpost() << ", ";
+	key1.getypositive()?cout << "":cout << "-";
+	cout << key1.getypre() << '.' << key1.getypost() << ", ";
+	long double dist1 = calcdist(data, key1);
+	cout << fixed << setprecision(10) << dist1 << '\n';
+	cout << "Key2:\t";
+	coordinate key2;
+	key2.genkeypoint();
+	key2.getxpositive()?cout << "":cout << "-";
+	cout << key2.getxpre() << '.' << key2.getxpost() << ", ";
+	key2.getypositive()?cout << "":cout << "-";
+	cout << key2.getypre() << '.' << key2.getypost() << ", ";
+	long double dist2 = calcdist(data, key2);
+	cout << fixed << setprecision(10) << dist2 << '\n';
+	cout << "Key3:\t";
+	coordinate key3;
+	key3.genkeypoint();
+	key3.getxpositive()?cout << "":cout << "-";
+	cout << key3.getxpre() << '.' << key3.getxpost() << ", ";
+	key3.getypositive()?cout << "":cout << "-";
+	cout << key3.getypre() << '.' << key3.getypost() << ", ";
+	long double dist3 = calcdist(data, key3);
+	cout << fixed << setprecision(10) << dist3 << '\n';
+	coordinate dataout;
+	dataout = calccord(dist1, dist2, dist3, key1, key2, key3);
+	cout << "data:\t" << dataout.converttodata() << '\n';
 //---------------------------------------------------------------
 	return 0;
 }

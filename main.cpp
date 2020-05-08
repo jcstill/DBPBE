@@ -1,4 +1,4 @@
-// coordinate.h is part of the DBPBE project
+// This file is part of the DBPBE project
 // Copyright (C) 2020 Jacob Still jacobcstill@gmail.com
 // Copyright (C) 2020 Alex Golubow agolubow@gmail.com
 //
@@ -16,16 +16,17 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <list>
-#include <ctime>
+#include <bitset>
 #include "encrypt.h"
 #include "decrypt.h"
 
 int main(){
 // Comment out each section to test individually
 //---------------------------------------------------------------
-//TESTING FOR DATATYPE CASTING
+	// cout << "TESTING FOR DATATYPE CASTING" << '\n';
 	// uint8_t unencrypted = uint8_t('A');
 	// cout << "uint8_t: " << unencrypted << '\n';
 	// cout << "int: " << (int)(unencrypted) << '\n';
@@ -37,7 +38,7 @@ int main(){
 	// tmp.converttopoint(unencrypted);
 	// cout << "Converted: " << tmp.getxpre() << '\n';
 //---------------------------------------------------------------
-//TESTING FOR DATATYPE CASTING 2.0
+	// cout << "TESTING FOR DATATYPE CASTING 2.0" << '\n';
 	// uint8_t unencrypted=65;
 	// cout << "uint8_t:\t\t" << unencrypted << '\n';
 	// coordinate tmp;
@@ -49,19 +50,21 @@ int main(){
 	// cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
 	// cout << "converted to uint8_t:\t" << tmp.converttodata() << '\n';
 //---------------------------------------------------------------
-//TESTING FOR CONVERSIONS
+	// cout << "TESTING FOR CONVERSIONS" << '\n';
 	// for(uint8_t unencrypted=0; unencrypted<255; ++unencrypted){
 	// 	cout << '"' << (unsigned int)(unencrypted) << "\"\t";
 	// 	coordinate tmp;
 	// 	tmp.converttopoint(unencrypted);
 	// 	tmp.getxpositive()?cout << "+":cout << "-";
-	// 	cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
+	// 	// cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
+	// 	cout << tmp.getxpre() << '\t' << tmp.getxpost() << '\t';
 	// 	tmp.getypositive()?cout << "+":cout << "-";
-	// 	cout << tmp.getypre() << '.' << tmp.getypost();
+	// 	// cout << tmp.getypre() << '.' << tmp.getypost();
+	// 	cout << tmp.getypre() << '\t' << tmp.getypost();
 	// 	cout << "\t\"" << (unsigned int)(tmp.converttodata()) << "\"\n";
 	// }
 //---------------------------------------------------------------
-//TESTING STRING INPUTS
+	// cout << "TESTING STRING INPUTS" << '\n';
 	// string input;
 	// cout << "enter string to convert to points: ";
 	// getline(cin, input);
@@ -75,7 +78,7 @@ int main(){
 	// 	cout << "\t" << tmp.converttodata() << '\n';
 	// }
 //---------------------------------------------------------------
-//TESTING STRING INPUTS INTO LIST
+	// cout << "TESTING STRING INPUTS INTO LIST" << '\n';
 	// list<coordinate> mylist;
 	// string input;
 	// cout << "enter string to convert to points: ";
@@ -97,7 +100,7 @@ int main(){
 	// }
 	// cout << '\n';
 //---------------------------------------------------------------
-//TESTING STRING INPUTS INTO LIST WITH MASSIVE DATA SETS
+	// cout << "TESTING STRING INPUTS INTO LIST WITH MASSIVE DATA SETS" << '\n';
 // STRING CONVERSION TESTED ON 100,000,000 RANDOMLY GENERATED CHARS WITH 100% ACCURACY (yes really)
 // tr -d "\n\r" < TESTDATASET100M > testin && cat testin | ./Driver > testout && echo && diff -yqsZ testin testout && wc -m testout && rm testin testout
 	// list<coordinate> mylist;
@@ -114,28 +117,90 @@ int main(){
 	// }
 	// cout << '\n';
 //---------------------------------------------------------------
-//TESTING KEY POINT CONVERSION
-	// for(uint16_t unencrypted=0; unencrypted<65535; ++unencrypted){
-	// 	cout << "uint16_t:\t" << unencrypted << '\t';
+	// cout << "TESTING KEY GENERATION BASED ON RAND" << '\n';
+	// srand(time(NULL));
+	// coordinate tmp;
+	// tmp.genkeypoint();
+	// tmp.getxpositive()?cout << "+":cout << "-";
+	// cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
+	// tmp.getypositive()?cout << "+":cout << "-";
+	// cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
+	// cout << tmp.getxpre() << '\t' << std::bitset<32>(tmp.getxpre()) << '\n';
+	// cout << tmp.getxpost() << '\t' << std::bitset<32>(tmp.getxpost()) << '\n';
+	// cout << tmp.getypre() << '\t' << std::bitset<32>(tmp.getypre()) << '\n';
+	// cout << tmp.getypost() << '\t' << std::bitset<32>(tmp.getypost()) << '\n';
+//---------------------------------------------------------------
+	// cout << "TESTING KEY GENERATION BASED ON RAND" << '\n';
+	// srand(time(NULL));
+	// list<coordinate> mylist;
+	// unsigned int input;
+	// cout << "Enter number of keys to generate: ";
+	// cin >> input;
+	// for(unsigned int i=0; i<input; ++i){
 	// 	coordinate tmp;
-	// 	tmp.genkeypoint(unencrypted);
-	// 	cout << "converted to point:\t";
-	// 	tmp.getxpositive()?cout << "+":cout << "-";
-	// 	cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
-	// 	tmp.getypositive()?cout << "+":cout << "-";
-	// 	cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
+	// 	tmp.genkeypoint();
+	// 	mylist.push_back(tmp);
+	// }
+	// while(mylist.size()!=0){
+	// 	mylist.front().getxpositive()?cout << "+":cout << "-";
+	// 	cout << mylist.front().getxpre() << '.' << mylist.front().getxpost() << '\t';
+	// 	mylist.front().getypositive()?cout << "+":cout << "-";
+	// 	cout << mylist.front().getypre() << '.' << mylist.front().getypost() << '\n';
+	// 	mylist.pop_front();
 	// }
 //---------------------------------------------------------------
-//TESTING KEY GENERATION BASED ON RAND
-	srand(time(NULL));
-	coordinate tmp;
-	uint16_t s = uint16_t(rand()%65536);
-	tmp.genkeypoint(s);
-	cout  << s << ":\t";
-	tmp.getxpositive()?cout << "+":cout << "-";
-	cout << tmp.getxpre() << '.' << tmp.getxpost() << '\t';
-	tmp.getypositive()?cout << "+":cout << "-";
-	cout << tmp.getypre() << '.' << tmp.getypost() << '\n';
+	// cout << "TESTING CONVERTING CHAR TO DISTANCES" << '\n';
+	// srand(time(NULL));
+	// uint8_t input;
+	// cout << "enter data char: ";
+	// cin >> input;
+	// cout << "Data:\t";
+	// coordinate data;
+	// data.converttopoint(input);
+	// data.getxpositive()?cout << "+":cout << "-";
+	// cout << data.getxpre() << '.' << data.getxpost() << '\t';
+	// data.getypositive()?cout << "+":cout << "-";
+	// cout << data.getypre() << '.' << data.getypost() << '\n';
+	// cout << "Key1:\t";
+	// coordinate key1;
+	// key1.genkeypoint();
+	// key1.getxpositive()?cout << "+":cout << "-";
+	// cout << key1.getxpre() << '.' << key1.getxpost() << '\t';
+	// key1.getypositive()?cout << "+":cout << "-";
+	// cout << key1.getypre() << '.' << key1.getypost() << '\n';
+	// distcoord test;
+	// test.calcdist(data, key1);
+	// cout << "Dist:\t" << fixed << setprecision(10) << test.getdist() << '\n';
+//---------------------------------------------------------------
+	// cout << "TESTING CONVERTING STRING TO DISTANCES" << '\n';
+	// srand(time(NULL));
+	// list<coordinate> mylist;
+	// string input;
+	// cout << "enter string to convert to points: ";
+	// getline(cin, input);
+	// for(unsigned int i=0; i<input.length(); ++i){
+	// 	cout << input[i] << ":\t";
+	// 	coordinate data;
+	// 	data.converttopoint((uint8_t)(input[i]));
+	// 	data.getxpositive()?cout << "+":cout << "-";
+	// 	cout << data.getxpre() << '.' << data.getxpost() << '\t';
+	// 	data.getypositive()?cout << "+":cout << "-";
+	// 	cout << data.getypre() << '.' << data.getypost() << '\n';
+	// 	mylist.push_back(data);
+	// }
+	// cout << "Key1:\t";
+	// coordinate key1;
+	// key1.genkeypoint();
+	// key1.getxpositive()?cout << "+":cout << "-";
+	// cout << key1.getxpre() << '.' << key1.getxpost() << '\t';
+	// key1.getypositive()?cout << "+":cout << "-";
+	// cout << key1.getypre() << '.' << key1.getypost() << '\n';
+	// while(mylist.size() > 0){
+	// 	distcoord test;
+	// 	test.calcdist(mylist.front(), key1);
+	// 	mylist.pop_front();
+	// 	cout << "\t" << fixed << setprecision(10) << test.getdist() << '\n';
+	// }
 //---------------------------------------------------------------
 	return 0;
 }

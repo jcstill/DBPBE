@@ -1,4 +1,4 @@
-// coordinate.h is part of the DBPBE project
+// encrypt.h is part of the DBPBE project
 // Copyright (C) 2020 Jacob Still jacobcstill@gmail.com
 // Copyright (C) 2020 Alex Golubow agolubow@gmail.com
 //
@@ -18,5 +18,10 @@
 #define __ENCRYPT_H__
 #include "coordinate.h"
 
+
+unsigned long long encrypt(coordinate data, coordinate key1, coordinate key2, coordinate key3){
+
+	return 0;
+}
 
 #endif

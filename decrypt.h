@@ -1,4 +1,4 @@
-// coordinate.h is part of the DBPBE project
+// decrypt.h is part of the DBPBE project
 // Copyright (C) 2020 Jacob Still jacobcstill@gmail.com
 // Copyright (C) 2020 Alex Golubow agolubow@gmail.com
 //

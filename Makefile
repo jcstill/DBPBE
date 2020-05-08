@@ -23,7 +23,7 @@ $(EXECUTABLE): $(OBJECTS)
 
 # Cleanup Routines:
 clean:
-	rm $(OBJECTS) $(EXECUTABLE)
+	rm $(OBJECTS) $(EXECUTABLE) $(EXECUTABLE).tar
 
 clean-o:
 	rm $(OBJECTS)
@@ -38,4 +38,4 @@ show-tar:
 	tar -tvf $(EXECUTABLE).tar
 
 tar:
-	tar -cf $(EXECUTABLE).tar *.cpp *.h $(EXECUTABLE).scr
+	tar -cf $(EXECUTABLE).tar *.cpp *.h

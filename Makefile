@@ -3,6 +3,7 @@ COMP=g++
 CFLAG=-c
 WFLAG=-Wall
 OFLAG=-o
+testnum=0
 
 # Program Specific:
 SOURCES=	main.cpp		\
@@ -12,15 +13,14 @@ OBJECTS=$(SOURCES:.cpp=.o)
 HEADERS=$(SOURCES:.cpp=.h)
 EXECUTABLE=DBPBE
 
-
 # Start of Make:
-Start: $(SOURCES) $(EXECUTABLE)
+Start: clean $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS) 
 	$(COMP) $(OBJECTS) $(OFLAG) $@ $(WFLAG)
 
 .cpp.o:
-	$(COMP) $(CFLAG) $< $(OFLAG) $@ $(WFLAG)
+	$(COMP) -D mode=$(testnum) $(CFLAG) $< $(OFLAG) $@ $(WFLAG)
 
 # Cleanup Routines:
 clean:

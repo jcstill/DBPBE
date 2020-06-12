@@ -3,7 +3,7 @@ DBPBE (Distance Between Points Based Encryption)
 
 This project is a proof of concept as of now
 
-See the documentation [here](https://dbpbe.com/web.html)
+See the documentation [here](https://dbpbe.com)
 
 ## Compiling
 

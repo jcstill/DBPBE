@@ -24,16 +24,16 @@ $(EXECUTABLE): $(OBJECTS)
 
 # Cleanup Routines:
 clean:
-	rm $(OBJECTS) $(EXECUTABLE)
+	rm -f $(OBJECTS) $(EXECUTABLE)
 
 clean-o:
-	rm $(OBJECTS)
+	rm -f $(OBJECTS)
 
 clean-b:
-	rm $(EXECUTABLE)
+	rm -f $(EXECUTABLE)
 
 clean-tar:
-	rm $(EXECUTABLE).tar
+	rm -f $(EXECUTABLE).tar
 
 show-tar:
 	tar -tvf $(EXECUTABLE).tar

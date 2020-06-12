@@ -1,6 +1,5 @@
 // coordinate.h is part of the DBPBE project
 // Copyright (C) 2020 Jacob Still jacobcstill@gmail.com
-// Copyright (C) 2020 Alex Golubow agolubow@gmail.com
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -20,6 +19,61 @@
 #include <cstdint>
 #include <ctime>
 using namespace std;
+
+class coordinate{
+	private:
+		long double x;
+		long double y;
+	public:
+		coordinate();
+		coordinate(long double, long double);
+		long double getx();
+		long double gety();
+		uint8_t converttodata();
+		void converttopoint(uint8_t input);
+		void genkeypoint();
+		void genkeypoint(const char input[], int size);
+};
+
+long double calcdist(coordinate data, coordinate key);
+bool withinPercent(long double first, long double percent, long double second);
+int circle_circle_intersection(long double x0,long double y0,long double r0,long double x1,long double y1,long double r1,long double *xi,long double *yi,long double *xi_prime,long double *yi_prime);
+long double get_single(long double x[6]);
+coordinate calccord(long double dist0, long double dist1, long double dist2, coordinate key0, coordinate key1, coordinate key2);
+
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 struct vect{
 	bool ispositive;
 	unsigned int predec;
@@ -42,8 +96,10 @@ class coordinate{
 		void genkeypoint();
 };
 long double todecimal(long double x);
-long double calcdist(coordinate data, coordinate key);
+
 int circle_circle_intersection(long double x0,long double y0,long double r0,long double x1,long double y1,long double r1,long double *xi,long double *yi,long double *xi_prime,long double *yi_prime);
 long double get_single(long double x[6], long double y[6]);
 coordinate calccord(long double dist1, long double dist2, long double dist3, coordinate key1, coordinate key2, coordinate key3);
 #endif
+
+*/

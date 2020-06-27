@@ -6,8 +6,7 @@ OFLAG=-o
 testnum=0
 
 # Program Specific:
-SOURCES=	main.cpp		\
-			coordinate.cpp
+SOURCES=	main.cpp
 
 OBJECTS=$(SOURCES:.cpp=.o)
 HEADERS=$(SOURCES:.cpp=.h)

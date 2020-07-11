@@ -193,6 +193,7 @@ void coordinate::genkeypoint(){
  *                                                                             *
  * NOTE:                                                                       *
  *    Need to call srand(time(NULL)) once at beginning of program              *
+ *    !TODO: Add Hash functionality to this as well???                         *
  *                                                                             *
  *    !TODO: Issue #6                                                          *
  *    fix datatypes completely                                                 *
@@ -316,7 +317,7 @@ void coordinate::genkeypoint(const char input[], int size){
 		convert += (unsigned int)((uint8_t)(hash[i]));
 		convert %= 255;
 	}
-	// !IMMEDIATE: Issue #(not reported)
+	// !IMMEDIATE: Issue #9
 	// need to fix this as it is the same code as an edge case where a distance is 0 can occur
 	x = (long long)(((unsigned int)(convert) * (unsigned int)(16785407)) * 5) % 4294967295;
 	bool positivex = (bool)(((unsigned int)(2097593) % (((unsigned int)(convert) % (unsigned int)(43)) + (unsigned int)(1)) * (unsigned int)(convert) * (unsigned int)(16785407)) % 2);

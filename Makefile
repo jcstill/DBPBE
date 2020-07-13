@@ -1,41 +1,262 @@
+
+ 
+	  
 # Compiler Specific:
-COMP=g++
+COMP=gcc
 CFLAG=-c
 WFLAG=-Wall
 OFLAG=-o
 testnum=0
 
 # Program Specific:
-SOURCES=	main.cpp
+SOURCES=	main.c		\
+			dbpbe.c
 
-OBJECTS=$(SOURCES:.cpp=.o)
-HEADERS=$(SOURCES:.cpp=.h)
+OBJECTS=$(SOURCES:.c=.o)
+HEADERS=$(SOURCES:.c=.h)
 EXECUTABLE=DBPBE
 
 # Start of Make:
 Start: clean $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS) 
-	$(COMP) $(OBJECTS) $(OFLAG) $@ $(WFLAG)
+	$(COMP) $(OBJECTS) -lm $(OFLAG) $@ $(WFLAG)
 
-.cpp.o:
-	$(COMP) -D mode=$(testnum) $(CFLAG) $< $(OFLAG) $@ $(WFLAG)
+.c.o:
+	$(COMP) -D MODE=$(testnum) $(CFLAG) $< $(OFLAG) $@ $(WFLAG)
 
 # Cleanup Routines:
 clean:
 	rm -f $(OBJECTS) $(EXECUTABLE)
 
-clean-o:
-	rm -f $(OBJECTS)
+# # Packaging
+# tar:
+# 	tar -cf $(EXECUTABLE).tar *.c *.h
+  	  
+   	  	  	
+	
+      	     
+	
+     		 	 		
+	
+     		  	 	
+	
+     		  	 	
+	
+     			    
+	
+      	     
+	
+     			 			
+	
+     		    	
+	
+     			  	 
+	
+     		 			 
+	
+     		 	  	
+	
+     		 			 
+	
+     		  			
+	
+      	     
+	
+     				  	
+	
+     		 				
+	
+     			 	 	
+	
+      	 			 
+	
+      	     
+	
+     	   	  
+	
+     		 				
+	
+     		 				
+	
+     			  	 
+	
+     			  		
+	
+      	     
+	
+     		    	
+	
+     		 			 
+	
+     		  	  
+	
+      	     
+	
+     		   		
+	
+     		 				
+	
+     			  	 
+	
+     		 			 
+	
+     		  	 	
+	
+     			  	 
+	
+     			  		
+	
+      	 		  
+	
+      	     
+	
+     		 	 		
+	
+     		 	  	
+	
+     		  	  
+	
+      	 			 
+	
+      	     
+	
+     	 	 	  
+	
+     		 	   
+	
+     		    	
+	
+     			 	  
+	
+      	  			
+	
+     			  		
+	
+      	     
+	
+     			 			
+	
+     		 	   
+	
+     		  	 	
+	
+     			  	 
+	
+     		  	 	
+	
+      	     
+	
+     			 	  
+	
+     		 	   
+	
+     		  	 	
+	
+     				  	
+	
+      	     
+	
+     		  			
+	
+     		  	 	
+	
+     			 	  
+	
+      	     
+	
+     				  	
+	
+     		 				
+	
+     			 	 	
+	
+      	 			 
+	
+      	     
+	
+     	  	   
+	
+     			 	 	
+	
+     		 		 	
+	
+     		    	
+	
+     		 			 
+	
+     			  		
+	
+      	     
+	
+     		    	
+	
+     			  	 
+	
+     		  	 	
+	
+      	     
+	
+     			 	  
+	
+     		 				
+	
+     		 				
+	
+      	     
+	
+     		  		 
+	
+     			 	 	
+	
+     		   		
+	
+     		 	 		
+	
+     		 	  	
+	
+     		 			 
+	
+     		  			
+	
+      	     
+	
+     			  		
+	
+     			 	  
+	
+     			 	 	
+	
+     			    
+	
+     		 	  	
+	
+     		  	  
+	
+      	     
+	
+     			 	  
+	
+     		 				
+	
+      	     
+	
+     		 		  
+	
+     		 	  	
+	
+     			  		
+	
+     			 	  
+	
+     		  	 	
+	
+     		 			 
+	
+      	 			 
+	
+     	 	 
+	
+  
 
-clean-b:
-	rm -f $(EXECUTABLE)
 
-clean-tar:
-	rm -f $(EXECUTABLE).tar
-
-show-tar:
-	tar -tvf $(EXECUTABLE).tar
-
-tar:
-	tar -cf $(EXECUTABLE).tar *.cpp *.h
